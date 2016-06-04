@@ -1,0 +1,7 @@
+= Glossary
+
+== SEU
+The German acronym for software development environment.
+
+== as-code
+Define or describe something using source code.
