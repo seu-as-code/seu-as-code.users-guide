@@ -1,7 +1,23 @@
 {
     "title": "SEU-as-code User's Guide",
+    "author": "Mario-Leander Reimer",
     "plugins": [
         "autocover"
     ],
-    "pluginsConfig": {}
+    "pluginsConfig": {
+        "autocover": {
+            "font": {
+                "size": null,
+                "family": "Impact",
+                "color": "#FFF"
+            },
+            "size": {
+                "w": 1800,
+                "h": 2360
+            },
+            "background": {
+                "color": "#09F"
+            }
+        }
+    }
 }
