@@ -1,4 +1,4 @@
 = Summary
 
-. link:quickstart.adoc[Quick Start]
+. link:quickstart.adoc[Quickstart]
 
