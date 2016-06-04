@@ -2,5 +2,5 @@
 
 . Introduction
 . link:quickstart.adoc[Quickstart]
-. Introduction
+. link:introduction.adoc[Introduction]
 
