@@ -1,3 +1,7 @@
 {
-  "title": "SEU-as-code User's Guide"
+    "title": "SEU-as-code User's Guide",
+    "plugins": [
+        "autocover"
+    ],
+    "pluginsConfig": {}
 }
