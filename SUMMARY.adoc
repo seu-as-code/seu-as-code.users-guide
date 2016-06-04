@@ -1,7 +1,4 @@
 = Summary
 
-. Introduction
-. Quickstart
-. Usage
-. Plugins
-. Packages
+. link:quickstart.adoc[Quick Start]
+
