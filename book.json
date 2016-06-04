@@ -1,6 +1,9 @@
 {
     "title": "SEU-as-code User's Guide",
     "author": "Mario-Leander Reimer",
+    "structure": {
+        "readme": "README.adoc"
+    },
     "plugins": [
         "autocover"
     ],
