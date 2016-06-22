@@ -1,5 +1,5 @@
 = Summary
 
 . link:README.adoc[Introduction]
-. link:background.adoc[Quickstart]
+. link:quickstart.adoc[Quickstart]
 
