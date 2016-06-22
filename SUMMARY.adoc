@@ -3,4 +3,5 @@
 . link:README.adoc[Introduction]
 . link:quickstart.adoc[Quickstart]
 . link:plugins.adoc[Plugins]
+. Packages
 
