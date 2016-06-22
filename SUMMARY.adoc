@@ -2,4 +2,5 @@
 
 . link:README.adoc[Introduction]
 . link:quickstart.adoc[Quickstart]
+. Plugins
 
