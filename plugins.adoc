@@ -1,2 +1,11 @@
 = Plugins
 
+== Base Plugin
+
+== Credentials Plugin
+
+== Git Plugin
+
+== Platform Plugin
+
+== SVN Plugin
