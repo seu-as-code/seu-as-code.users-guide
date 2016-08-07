@@ -8,4 +8,72 @@
 
 == Platform Plugin
 
+A basic Gradle plugin that allows to apply platform specific configurations in aGradle build file. Originally, this plugin has been developed to enable multi-platformSEUs. In a mixed team you sometimes have team members that develop under Windows,MacOS or Linux. But you want to support all these platform via one Gradle build file.But maybe you need to use different dependency version between these platforms oryou may require different implementations of the same task depending on the plaform.
+
+=== Basic Usage
+
+Build script snippet for use in all Gradle versions, using the Bintray Maven repository:```groovybuildscript { repositories { mavenCentral() maven { url 'https://dl.bintray.com/seu-as-code/gradle-plugins' } } dependencies { classpath 'de.qaware.seu.as.code:seuac-platform-plugin:1.0.0' }}
+
+apply plugin: 'de.qaware.seu.as.code.platform'```
+
+Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:```groovyplugins { id 'de.qaware.seu.as.code.platform' version '1.0.0'}```
+
+=== Extra Properties
+
+The plugin defines the following extra properties, that may be used for platform specific behaviour:
+
+[cols="1a,3a"]|===| Task name | Description
+
+| `osFamily`| The OS family, either `windows`, `macos`, `unix` or `unknown`
+
+| `osClassifier`| The OS classifier, either `win`, `mac`, `unix` or `???`
+
+| `osArch`| The OS architecture, either `x86_64` or `x86`|===
+
+=== Extension
+
+The plugin defines the following closures in the `platform` extension:
+
+[cols="1a,1a,1a,3a"]|===| Property name | Type | Default value | Description
+
+| `win`| Closure| -| Apply configuration to project if running on Windows.
+
+| `mac`| Closure| -| Apply configuration to project if running on MacOS.
+
+| `unix`| Closure| -| Apply configuration to project if running on Linux or Unix.
+
+| `x86`| Closure| -| Apply configuration to project if running on x86 system.
+
+| `x86_64`| Closure| -| Apply configuration to project if running on x86_64 system.|===
+
+The following example shows the full extension configuration in code:```groovyplatform { win { // add Windows specific code like dependencies or tasks here } mac { // add MacOS specific code like dependencies or tasks here } unix { // add Unix or Linux specific stuff like dependencies or tasks here } x86 { // add 32-bit specific stuff like dependencies or tasks here } x86_64 { // add 64-bit specific code like dependencies or tasks here }}```
+
+=== Examples
+
+==== Basic extension configuration
+
+The following example uses the extension configuration to add platform specificdependencies as well as platform specific task definitions.
+
+```groovyplatform { win { dependencies { software 'io.github.msysgit:git:1.9.5' software 'org.gradle:gradle:2.13' }
+
+ task helloSeuAsCode(group: 'Example') << { println 'Hello SEU-as-code on Windows.' } } mac { dependencies { software 'org.gradle:gradle:2.14' }
+
+ task helloSeuAsCode(group: 'Example') << { println 'Hello SEU-as-code on MacOS.' } }}```
+
+==== Platform specific dependencies
+
+The following example uses the `$osClassifier` extra property as classifier toadd a platform specific dependency.
+
+```groovydependencies { software "de.qaware.seu.as.code:seuac-environment:2.3.0:$osClassifier"}```
+
+==== Platform specific tasks
+
+This example uses static methods from the `Platform` class to enable tasks basedon the current platform the build is running on.
+
+```groovyimport static de.qaware.seu.as.code.plugins.platform.Platform.isWindowsimport static de.qaware.seu.as.code.plugins.platform.Platform.isMacOs
+
+task helloWorldOnWindows(group: 'Example') { enabled = isWindows() doLast { println 'Hello World on Windows.' }}
+
+task helloWorldOnlyIfMac(group: 'Example') { onlyIf { isMacOs() } doLast { println 'Hello World only if Mac.' }}```
+
 == SVN Plugin
