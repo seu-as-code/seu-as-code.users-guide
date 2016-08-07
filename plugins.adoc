@@ -8,7 +8,7 @@
 
 == Platform Plugin
 
-A basic Gradle plugin that allows to apply platform specific configurations in aGradle build file. Originally, this plugin has been developed to enable multi-platformSEUs. In a mixed team you sometimes have team members that develop under Windows,MacOS or Linux. But you want to support all these platform via one Gradle build file.But maybe you need to use different dependency version between these platforms oryou may require different implementations of the same task depending on the plaform.
+A basic Gradle plugin that allows to apply platform specific configurations in aGradle build file. Originally, this plugin has been developed to enable multi-platform SEUs. In a mixed team you sometimes have team members that develop under Windows, MacOS or Linux. But you want to support all these platform via one Gradle build file. But usually you need to use different dependency versions between these platforms or you may require different implementations of the same task depending on the plaform.
 
 === Basic Usage
 
@@ -54,7 +54,8 @@ The following example shows the full extension configuration in code:```groovypl
 
 The following example uses the extension configuration to add platform specificdependencies as well as platform specific task definitions.
 
-```groovyplatform { win { dependencies { software 'io.github.msysgit:git:1.9.5' software 'org.gradle:gradle:2.13' }
+```groovy
+platform { win { dependencies { software 'io.github.msysgit:git:1.9.5' software 'org.gradle:gradle:2.13' }
 
  task helloSeuAsCode(group: 'Example') << { println 'Hello SEU-as-code on Windows.' } } mac { dependencies { software 'org.gradle:gradle:2.14' }
 
@@ -70,7 +71,8 @@ The following example uses the `$osClassifier` extra property as classifier toad
 
 This example uses static methods from the `Platform` class to enable tasks basedon the current platform the build is running on.
 
-```groovyimport static de.qaware.seu.as.code.plugins.platform.Platform.isWindowsimport static de.qaware.seu.as.code.plugins.platform.Platform.isMacOs
+```groovy
+import static de.qaware.seu.as.code.plugins.platform.Platform.isWindowsimport static de.qaware.seu.as.code.plugins.platform.Platform.isMacOs
 
 task helloWorldOnWindows(group: 'Example') { enabled = isWindows() doLast { println 'Hello World on Windows.' }}
 
