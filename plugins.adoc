@@ -110,12 +110,28 @@ platform {
 
 The following example uses the extension configuration to add platform specific dependencies as well as platform specific task definitions.
 
-```groovy
-platform { win { dependencies { software 'io.github.msysgit:git:1.9.5' software 'org.gradle:gradle:2.13' }
-
- task helloSeuAsCode(group: 'Example') << { println 'Hello SEU-as-code on Windows.' } } mac { dependencies { software 'org.gradle:gradle:2.14' }
-
- task helloSeuAsCode(group: 'Example') << { println 'Hello SEU-as-code on MacOS.' } }}```
+[source,groovy]
+----
+platform { 
+    win { 
+        dependencies { 
+            software 'io.github.msysgit:git:1.9.5' 
+            software 'org.gradle:gradle:2.13' 
+        }
+        task helloSeuAsCode(group: 'Example') << { 
+            println 'Hello SEU-as-code on Windows.' 
+        } 
+    } 
+    mac { 
+        dependencies { 
+            software 'org.gradle:gradle:2.14' 
+        }
+        task helloSeuAsCode(group: 'Example') << { 
+            println 'Hello SEU-as-code on MacOS.' 
+        } 
+    }
+}
+----
 
 ==== Platform specific dependencies
 
