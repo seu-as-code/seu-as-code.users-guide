@@ -146,13 +146,22 @@ dependencies {
 
 ==== Platform specific tasks
 
-This example uses static methods from the `Platform` class to enable tasks basedon the current platform the build is running on.
+This example uses static methods from the `Platform` class to enable tasks based on the current platform the build is running on.
 
-```groovy
-import static de.qaware.seu.as.code.plugins.platform.Platform.isWindowsimport static de.qaware.seu.as.code.plugins.platform.Platform.isMacOs
+[source,groovy]
+----
+import static de.qaware.seu.as.code.plugins.platform.Platform.isWindows
+import static de.qaware.seu.as.code.plugins.platform.Platform.isMacOs
 
-task helloWorldOnWindows(group: 'Example') { enabled = isWindows() doLast { println 'Hello World on Windows.' }}
+task helloWorldOnWindows(group: 'Example') { 
+    enabled = isWindows() 
+    doLast { println 'Hello World on Windows.' }
+}
 
-task helloWorldOnlyIfMac(group: 'Example') { onlyIf { isMacOs() } doLast { println 'Hello World only if Mac.' }}```
+task helloWorldOnlyIfMac(group: 'Example') { 
+    onlyIf { isMacOs() } 
+    doLast { println 'Hello World only if Mac.' }
+}
+----
 
 == SVN Plugin
