@@ -137,7 +137,12 @@ platform {
 
 The following example uses the `$osClassifier` extra property as classifier toadd a platform specific dependency.
 
-```groovydependencies { software "de.qaware.seu.as.code:seuac-environment:2.3.0:$osClassifier"}```
+[source,groovy]
+----
+dependencies { 
+    software "de.qaware.seu.as.code:seuac-environment:2.3.0:$osClassifier"
+}
+----
 
 ==== Platform specific tasks
 
