@@ -401,7 +401,7 @@ The plugin defines the following extension properties in the `subversion` closur
 
 ===== Defining SVN repositories
 
-The following example defines the SVN repository for the SEU-as-plugins repo. The example does not hardcode the username and password properties, instead you should use project properties or the SEU-as-code credentials plugin.
+The following example defines the SVN repository for the SEU-as-code plugins repo. The example does not hardcode the username and password properties, instead you should either use project properties or the SEU-as-code credentials plugin.
 
 [source,groovy]
 ----
