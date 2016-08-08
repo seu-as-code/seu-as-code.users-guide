@@ -98,13 +98,19 @@ New dependencies are installed, obsolete software will be removed.
 
 The plugin defines the following configurations:
 
-[cols="1a,3a"]|===| Task name | Description
+[cols="1a,3a"]
+|===
+| Task name | Description
 
-| `seuac`| Used for dependencies that need to be put in the root classloader, e.g. SQL drivers
+| `seuac`
+| Used for dependencies that need to be put in the root classloader, e.g. SQL drivers
 
-| `software`| Used for software dependencies that will be installed in the software directory.
+| `software`
+| Used for software dependencies that will be installed in the software directory.
 
-| `home`| Used for dependencies that will be installed in the home directory.|===
+| `home`
+| Used for dependencies that will be installed in the home directory.
+|===
 
 
 === Extra Properties
