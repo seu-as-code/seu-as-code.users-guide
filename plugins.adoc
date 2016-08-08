@@ -112,7 +112,6 @@ The plugin defines the following configurations:
 | Used for dependencies that will be installed in the home directory.
 |===
 
-
 === Extra Properties
 
 The plugin defines the following extra properties, that may be used for platform specific behavior. This functionality will soon be removed from this plugin in favor of the platform plugin.
@@ -130,7 +129,6 @@ The plugin defines the following extra properties, that may be used for platform
 | `osArch` 
 | The OS architecture, either `x86_64` or `x86`
 |===
-
 
 === Extension
 
