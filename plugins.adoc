@@ -117,13 +117,19 @@ The plugin defines the following configurations:
 
 The plugin defines the following extra properties, that may be used for platform specific behavior:
 
-[cols="1a,3a"]|===| Task name | Description
+[cols="1a,3a"]
+|===
+| Task name | Description
 
-| `osFamily` | The OS family, either `windows`, `macos`, `unix` or `unknown`
+| `osFamily` 
+| The OS family, either `windows`, `macos`, `unix` or `unknown`
 
-| `osClassifier` | The OS classifier, either `win`, `mac`, `unix` or `???`
+| `osClassifier` 
+| The OS classifier, either `win`, `mac`, `unix` or `???`
 
-| `osArch` | The OS architecture, either `x86_64` or `x86`|===
+| `osArch` 
+| The OS architecture, either `x86_64` or `x86`
+|===
 
 
 === Extension
