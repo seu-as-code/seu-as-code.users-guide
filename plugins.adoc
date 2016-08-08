@@ -4,7 +4,7 @@
 
 == Credentials Plugin
 
-A Gradle plugin for the secure storage of your credentials either using theWindows Data Protection API (DPAPI) or the MacOS keychain mechanism. Storing anycredentials in clear text in your sources or your build file is not only badpractice, it is just plain stupid since this makes it really easy for a potentialattacker to access your systems.
+A Gradle plugin for the secure storage of your credentials either using theWindows Data Protection API (DPAPI) or the MacOS keychain mechanism. Storing any credentials in clear text in your sources or your build file is not only bad practice, it is just plain stupid since this makes it really easy for a potential attacker to access your systems.
 
 === Basic Usage
 
@@ -74,10 +74,14 @@ The plugin defines the following extra extension properties:
 
 ==== Command line usage
 
-First add the credentials for the `Nexus` service by invoking one of the followingGradle tasks, you will be asked for the username and password on the Console:[source,shell]
-----$ ./gradlew setCredentials --service Nexus$ ./gradlew setCredentials --service Nexus --username fooUser----
+First add the credentials for the `Nexus` service by invoking one of the following Gradle tasks, you will be asked for the username and password on the Console:
+[source,shell]
+----
+$ ./gradlew setCredentials --service Nexus
+$ ./gradlew setCredentials --service Nexus --username fooUser
+----
 
-You can also display and clear the credentials from the command line using thefollowing Gradle tasks:[source,shell]
+You can also display and clear the credentials from the command line using the following Gradle tasks:[source,shell]
 ----$ ./gradlew displayCredentials --service Nexus$ ./gradlew clearCredentials --service Nexus----
 
 ==== Using credentials in a build script
