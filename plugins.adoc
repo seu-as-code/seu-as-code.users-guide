@@ -74,11 +74,19 @@ The plugin defines the following extra extension properties:
 
 The plugin defines the following closures in the `credentials` extension:
 
-[cols="1a,1a,1a,3a"]|===| Property name | Type | Default value | Description
+[cols="1a,1a,1a,3a"]
+|===
+| Property name | Type | Default value | Description
 
-| `keychainFile`| String| `null`| The custom location for the MacOS keychain file to use.
+| `keychainFile`
+| String
+| `null`
+| The custom location for the MacOS keychain file to use.
 
-| `propertyFile`| String| `null`| The custom location of the secure properties file under Windows.|===
+| `propertyFile`
+| String
+| `null`
+| The custom location of the secure properties file under Windows.|===
 
 
 === Examples
@@ -296,3 +304,4 @@ task helloWorldOnlyIfMac(group: 'Example') {
 ----
 
 == SVN Plugin
+
