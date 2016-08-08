@@ -60,8 +60,11 @@ repositories {    mavenCentral()    maven {        url nexusUrl credentials { //
 
 ==== Custom keychain or property file location
 
-The plugin comes with sensible default values where the credentials are stored.On MacOS this will be the user's default login keychain, and on Windows the`secure-credentials.properties` file is stored in the user's Gradle home dir.In case you want to override these locations you can define these using the`credentials` extension in you Gradle build file.[source,groovy]
-----credentials {    keychainFile = "$projectDir/SEU-as-code.keychain"    propertyFile = "$projectDir/secure-credentials.properties"}----
+The plugin comes with sensible default values where the credentials are stored.On MacOS this will be the user's default login keychain, and on Windows the`secure-credentials.properties` file is stored in the user's Gradle home dir.In case you want to override these locations you can define these using the`credentials` extension in you Gradle build file.
+[source,groovy]
+----
+credentials {    keychainFile = "$projectDir/SEU-as-code.keychain"    propertyFile = "$projectDir/secure-credentials.properties"}
+----
 
 == Git Plugin
 
