@@ -4,7 +4,7 @@
 
 == Credentials Plugin
 
-A Gradle plugin for the secure storage of your credentials either using theWindows Data Protection API (DPAPI) or the MacOS keychain mechanism. Storing any credentials in clear text in your sources or your build file is not only bad practice, it is just plain stupid since this makes it really easy for a potential attacker to access your servers and systems.
+A Gradle plugin for the secure storage of your credentials either using the Windows Data Protection API (DPAPI) or the MacOS keychain mechanism. Storing any credentials in clear text in your sources or your build file is not only bad practice, it is just plain stupid since this makes it really easy for a potential attacker to access your servers and systems.
 
 === Basic Usage
 
