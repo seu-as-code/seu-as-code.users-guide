@@ -40,7 +40,7 @@ Since SEU-as-code packages are basically ordinary Maven artifacts, a package rep
 is required to host the packages. Most of the open source packages in the GutHub
 packages repository are hosted at https://bintray.com/seu-as-code/maven/[Bintray].
 
-Tip: use a dedicated repository. Don't mix software packages with ordinary Maven artifacts.
+TIP: Use a dedicated repository. Don't mix software packages with ordinary Maven artifacts.
 
 But you probably soon find that you may need some customizations that are very specific
 to your project or even your company. So where do you host your private software
