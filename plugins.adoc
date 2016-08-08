@@ -338,43 +338,90 @@ plugins {
 
 The plugin defines the following tasks:
 
-[cols="1a,1a,1a,3a"]|===| Task name | Depends on | Type | Description
+[cols="1a,1a,1a,3a"]
+|===
+| Task name | Depends on | Type | Description
 
-| `svnCheckoutAll`| all `svnCheckout<RepositoryName>` tasks| -| Performs a SVN checkout of all defined repositories.
+| `svnCheckoutAll`
+| all `svnCheckout<RepositoryName>` tasks
+| -
+| Performs a SVN checkout of all defined repositories.
 
-| `svnUpdateAll`| all `svnUpdate<RepositoryName>` tasks| -| Performs a SVN update of all defined repositories.
+| `svnUpdateAll`
+| all `svnUpdate<RepositoryName>` tasks
+| -
+| Performs a SVN update of all defined repositories.
 
-| `svnCheckout<RepositoryName>`| -| SvnCheckoutTask| Performs a SVN checkout of the named SVN repository.
+| `svnCheckout<RepositoryName>`
+| -
+| SvnCheckoutTask
+| Performs a SVN checkout of the named SVN repository.
 
-| `svnUpdate<RepositoryName>`| -| SvnUpdateTask| Performs a SVN update of the named SVN repository.|===
+| `svnUpdate<RepositoryName>`
+| -
+| SvnUpdateTask
+| Performs a SVN update of the named SVN repository.
+|===
 
 ==== Extension
 
 The plugin defines the following extension properties in the `subversion` closure:
 
-[cols="1a,1a,1a,3a"]|===| Property name | Type | Default value | Description
+[cols="1a,1a,1a,3a"]
+|===
+| Property name | Type | Default value | Description
 
-| `subversion`| NamedDomainObjectContainer<SvnRepository>| -| Contains the named SVN repository definitions.
+| `subversion`
+| NamedDomainObjectContainer<SvnRepository>
+| -
+| Contains the named SVN repository definitions.
 
-| `url`| String| -| The URL of the named SVN repository.
+| `url`
+| String
+| -
+| The URL of the named SVN repository.
 
-| `directory`| File| -| The local checkout directory of the named SVN repository.
+| `directory`
+| File
+| -
+| The local checkout directory of the named SVN repository.
 
-| `username`| String| -| The username used to authenticate.
+| `username`
+| String
+| -
+| The username used to authenticate.
 
-| `password`| String| -| The password used to authenticate.|===
+| `password`
+| String
+| -
+| The password used to authenticate.
+|===
 
 ==== Examples
 
 ===== Defining SVN repositories
 
-The following example defines the SVN repository for the SEU-as-plugins repo.The example does not hardcode the username and password properties, instead youshould use project properties or the SEU-as-code credentials plugin.
+The following example defines the SVN repository for the SEU-as-plugins repo. The example does not hardcode the username and password properties, instead you should use project properties or the SEU-as-code credentials plugin.
 
-```groovysubversion { SeuAsCodePlugins { url 'https://github.com/seu-as-code/seu-as-code.plugins' directory file("$seuHome/codebase/seu-as-code.plugins/") username svnUsername password svnPassword }}```
+[source,groovy]
+----
+subversion { 
+    SeuAsCodePlugins { 
+        url 'https://github.com/seu-as-code/seu-as-code.plugins' 
+        directory file("$seuHome/codebase/seu-as-code.plugins/") 
+        username svnUsername 
+        password svnPassword 
+    }
+}
+----
 
 ===== Working with SVN repositories
 
-Once you have defined one or more SVN repositories using the plugin extension,you can perform a SVN checkout and update on each repository individually or onall defined repos.
+Once you have defined one or more SVN repositories using the plugin extension, you can perform a SVN checkout and update on each repository individually or on all defined repos.
 
-```shell$ ./gradlew svnCheckoutSeuAsCodePlugins$ ./gradlew svnUpdateAll```
+[source,shell]
+----
+$ ./gradlew svnCheckoutSeuAsCodePlugins
+$ ./gradlew svnUpdateAll
+----
 
