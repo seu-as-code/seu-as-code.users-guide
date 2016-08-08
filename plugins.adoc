@@ -92,11 +92,19 @@ $ ./gradlew clearCredentials --service Nexus
 Once you have set the credentials via the command line you can then use this credential information in your build script, e.g. in the repositories section,via the `credentials` extra property:
 [source,groovy]
 ----
-repositories {    mavenCentral()    maven {        url nexusUrl credentials { // use array type access to credentials via service name username project.credentials['Nexus'].username password project.credentials['Nexus'].password
+repositories {
+    mavenCentral()
+    maven {
+        url nexusUrl
+        credentials { 
+            // use array type access to credentials via service name 
+            username project.credentials['Nexus'].username 
+            password project.credentials['Nexus'].password
 
  // use getter access to credentials via service name username project.credentials.get('Nexus').username password project.credentials.get('Nexus').password
 
- // or use string interpolation username "${credentials['Nexus'].username}" password "${credentials['Nexus'].password}" } } }----
+ // or use string interpolation username "${credentials['Nexus'].username}" password "${credentials['Nexus'].password}" } } }
+----
 
 ==== Custom keychain or property file location
 
