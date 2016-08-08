@@ -87,7 +87,7 @@ The plugin defines the following closures in the `credentials` extension:
 | String
 | `null`
 | The custom location of the secure properties file under Windows.|===
-
+|===
 
 === Examples
 
