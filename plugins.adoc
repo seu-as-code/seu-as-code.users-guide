@@ -73,13 +73,26 @@ New dependencies are installed, obsolete software will be removed.
 | Apply the home configuration and install packages. 
 New dependencies are installed, obsolete software will be removed.
 
-| `runSoftwareHooks`| -| RunHooksTask| Runs any software hooks after the installation.
+| `runSoftwareHooks`
+| -
+| RunHooksTask
+| Runs any software hooks after the installation.
 
-| `runHomeHooks`| -| RunHooksTask| Runs any home hooks after the installation.
+| `runHomeHooks`
+| -
+| RunHooksTask
+| Runs any home hooks after the installation.
 
-| `createAsciiBanner`| -| CreateAsciiBannerTask| Creates the ASCII banner file.
+| `createAsciiBanner`
+| -
+| CreateAsciiBannerTask
+| Creates the ASCII banner file.
 
-| `storeSeuacDb`| -| StoreSeuacDbTask| Store the current SEU software package configuration.|===
+| `storeSeuacDb`
+| -
+| StoreSeuacDbTask
+| Store the current SEU software package configuration.
+|===
 
 
 === Extra Properties
