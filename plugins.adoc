@@ -207,7 +207,7 @@ seuAsCode {
 }
 ----
 
-===== Install software as dependencies
+==== Install software as dependencies
 
 The plugin configurations are used to determine the installation directory of the software package dependencies. You have to specify a Maven repository where these dependencies are located, in this case we used Bintray and JCenter.
 
@@ -232,7 +232,7 @@ dependencies {
 }
 ----
 
-===== Building platform specific SEUs
+==== Building platform specific SEUs
 
 In case you want to build platform specific SEUs with a lot of differences you can use the platform closure with its nested closures for each supported platform. This functionality will soon be removed from this plugin in favor of the platform plugin.
 
