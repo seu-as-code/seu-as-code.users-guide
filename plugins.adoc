@@ -132,6 +132,21 @@ The plugin defines the following extra properties, that may be used for platform
 
 === Extension
 
+The plugin defines the following extension properties in the `seuAsCode` closure:
+
+[cols="1a,1a,1a,3a"]|===| Property name | Type | Default value | Description
+
+| `seuHome`| String| -| The home directory for this SEU. Can be a VHD or any other valid directory.
+
+| `projectName`| String| -| The project name for this SEU.
+
+| `layout`| SeuacLayout| -| Optional. Defines the directory layout for this SEU.
+
+| `datastore`| SeuacDatastore| -| Optional. Defines the datastore used to persist the SEU configuration.Currently H2 (use jdbc:h2:seuac as URL) and MapDB (use file:mapdb:seuac as URL)are supported.
+
+| `banner`| SeuacBanner| -| Optional. Defines the ASCII banner configuration.|===
+
+
 === Examples
 
 
