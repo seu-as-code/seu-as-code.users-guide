@@ -56,7 +56,7 @@ The plugin defines the following tasks:
 | Clears the credentials for a service. Invoke with `--service [Name of service]` parameter.
 |===
 
-==== Extension Properties
+==== Extra Properties
 
 The plugin defines the following extra extension properties:
 
@@ -69,6 +69,8 @@ The plugin defines the following extra extension properties:
 | -
 | Object to query credentials. Invoke the `String get(String service)` method to get the credentials with the service name `service`.
 |===
+
+
 
 === Examples
 
