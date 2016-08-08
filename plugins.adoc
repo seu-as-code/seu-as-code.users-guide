@@ -86,7 +86,7 @@ The plugin defines the following closures in the `credentials` extension:
 | `propertyFile`
 | String
 | `null`
-| The custom location of the secure properties file under Windows.|===
+| The custom location of the secure properties file under Windows.
 |===
 
 === Examples
@@ -134,7 +134,7 @@ repositories {
 
 ==== Custom keychain or property file location
 
-The plugin comes with sensible default values where the credentials are stored. On MacOS this will be the user's default login keychain, and on Windows the`secure-credentials.properties` file is stored in the user's Gradle home dir. In case you want to override these locations you can define these using the`credentials` extension in your Gradle build file.
+The plugin comes with sensible default values where the credentials are stored. On MacOS this will be the user's default login keychain, and on Windows the `secure-credentials.properties` file is stored in the user's Gradle home dir. In case you want to override these locations you can define these using the`credentials` extension in your Gradle build file.
 [source,groovy]
 ----
 credentials {
@@ -274,7 +274,7 @@ platform {
 
 ==== Platform specific dependencies
 
-The following example uses the `$osClassifier` extra property as classifier toadd a platform specific dependency.
+The following example uses the `$osClassifier` extra property as classifier to add a platform specific dependency.
 
 [source,groovy]
 ----
