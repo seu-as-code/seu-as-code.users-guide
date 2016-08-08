@@ -143,7 +143,83 @@ credentials {
 }
 ----
 
+
 == Git Plugin
+
+A Gradle plugin for handling Git repositories. It provides basic tasks to init, clonecommit, push and push Git repositories. This plugin does not require a Git CLI sinceit uses the JGit library under the hood. The repositories can be configured using theplugin extension.
+
+=== Basic Usage
+
+Build script snippet for use in all Gradle versions, using the Bintray Maven repository:[source,groovy]----buildscript { repositories { mavenCentral() maven { url 'https://dl.bintray.com/seu-as-code/gradle-plugins' } } dependencies { classpath 'de.qaware.seu.as.code:seuac-git-plugin:2.3.0.RC2' }}
+
+apply plugin: 'de.qaware.seu.as.code.git'----
+
+Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:[source,groovy]----plugins { id 'de.qaware.seu.as.code.git' version '2.3.0.RC2'}----
+
+=== Tasks
+
+The plugin defines the following tasks:
+
+[cols="1a,1a,1a,3a"]|===| Task name | Depends on | Type | Description
+
+| `gitInitAll`| all `gitInit<RepositoryName>` tasks| -| Performs a Git init for all defined repositories.
+
+| `gitCloneAll`| all `gitClone<RepositoryName>` tasks| -| Performs a Git clone for all defined repositories.
+
+| `gitPushAll`| all `gitPush<RepositoryName>` tasks| -| Performs a Git push for all defined repositories.
+
+| `gitPullAll`| all `gitPull<RepositoryName>` tasks| -| Performs a Git pull for all defined repositories.
+
+| `gitStatusAll`| all `gitStatus<RepositoryName>` tasks| -| Performs a Git status for all defined repositories.
+
+| `gitInit<RepositoryName>`| -| GitInitTask| Performs a Git init for the named Git repository.
+
+| `gitClone<RepositoryName>`| -| GitCloneTask| Performs a Git clone for the named Git repository.
+
+| `gitStatus<RepositoryName>`| -| GitStatusTask| Performs a Git status for the named Git repository.
+
+| `gitCommit<RepositoryName>`| -| GitCommitTask| Performs a Git commit for the named Git repository. Override message project property.
+
+| `gitPush<RepositoryName>`| -| GitPushTask| Performs a Git push for the named Git repository to remote origin.
+
+| `gitPull<RepositoryName>`| -| GitPullTask| Performs a Git pull for the named Git repository from remote origin.|===
+
+=== Extension
+
+The plugin defines the following extension properties in the `git` closure:
+
+[cols="1a,1a,1a,3a"]|===| Property name | Type | Default value | Description
+
+| `git`| NamedDomainObjectContainer<GitRepository>| -| Contains the named Git repository definitions.
+
+| `url`| String| -| The URL of the named Git repository. Include username and password in the URL.
+
+| `directory`| File| -| The local directory of the named Git repository.
+
+| `branch`| String| -| The branch name to use. Defaults to HEAD.If `singleBranch` is `true` this must be a valid refspec like `refs/heads/BRANCHNAME`.
+
+| `username`| String| -| The username used for authentication.
+
+| `password`| String| -| The password used for authentication.
+
+| `options`| GitOptions| -| The Git command options.|===
+
+=== Examples
+
+==== Defining Git repositories
+
+The following example defines the Git repository of the SEU-as-code plugins repo.The example does not hardcode the username and password properties, instead youshould use either project properties or the SEU-as-code credentials plugin.
+
+[source,groovy]----git { SeuAsCodePlugins { url 'https://github.com/seu-as-code/seu-as-code.plugins.git' directory file("$seuHome/codebase/seu-as-code.plugins/") branch 'HEAD' username gitUsername password gitPassword
+
+ options { clone { singleBranch = false cloneSubmodules = true noCheckout = false timeout = 300 } pull { rebase = true timeout = 600 } push { dryRun = false pushAll = true pushTags = true timeout = 200 force = true } } }}----
+
+==== Working with Git repositories
+
+Once you have defined one or more Git repositories using the plugin extension,you can perform the support operations by calling the associated tasks. Most ofthe command options from the configuration extension can also be set as commandline options.
+
+[source,shell]----$ ./gradlew gitCloneSeuAsCodePlugins$ ./gradlew gitPullAll --rebase true...$ ./gradlew gitCommitSeuAsCodePlugins --message "New feature added."$ ./gradlew gitPushAll --all----
+
 
 == Platform Plugin
 
