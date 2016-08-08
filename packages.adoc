@@ -51,20 +51,22 @@ deployed at our repo that is used in all of our project SEUs.
 So probably you also have an artifact repository server like Nexus or Artifactory
 available at your company you can use.
 
-```groovy
+[source,groovy]
+----
 repositories {
-  maven {
-    url 'https://your.company/repo/seu-as-code'
-  }
+    maven {
+        url 'https://your.company/repo/seu-as-code'
+    }
 }
-```
+----
 
 2. *Local SEU Repository:* this options is most useful for small and very SEU or
 project specific artifacts and customizations. Those artifacts are part of your
 SEU and should be versioned with the other SEU files.
 
-```groovy
+[source,groovy]
+----
 repositories {
-  flatDir { dirs 'repo' }
+    flatDir { dirs 'repo' }
 }
-```
+----
