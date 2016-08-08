@@ -147,7 +147,7 @@ credentials {
 
 == Platform Plugin
 
-A basic Gradle plugin that allows to apply platform specific configurations in aGradle build file. Originally, this plugin has been developed to enable multi-platform SEUs. In a mixed team you sometimes have team members that develop under Windows, MacOS or Linux. But you want to support all these platform via one Gradle build file. But usually you need to use different dependency versions between these platforms or you may require different implementations of the same task depending on the plaform.
+A basic Gradle plugin that allows to apply platform specific configurations in aGradle build file. Originally, this plugin has been developed to enable multi-platform SEUs. In a mixed team you sometimes have team members that develop under Windows, MacOS or Linux. But you want to support all these platform via one Gradle build file. But usually you need to use different dependency versions between these platforms or you may require different implementations of the same task depending on the platform.
 
 === Basic Usage
 
