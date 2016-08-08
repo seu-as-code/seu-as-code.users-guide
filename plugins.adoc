@@ -82,11 +82,15 @@ $ ./gradlew setCredentials --service Nexus --username fooUser
 ----
 
 You can also display and clear the credentials from the command line using the following Gradle tasks:[source,shell]
-----$ ./gradlew displayCredentials --service Nexus$ ./gradlew clearCredentials --service Nexus----
+----
+$ ./gradlew displayCredentials --service Nexus
+$ ./gradlew clearCredentials --service Nexus
+----
 
 ==== Using credentials in a build script
 
-Once you have set the credentials via the command line you can then use thiscredential information in your build script, e.g. in the repositories section,via the `credentials` extra property:[source,groovy]
+Once you have set the credentials via the command line you can then use this credential information in your build script, e.g. in the repositories section,via the `credentials` extra property:
+[source,groovy]
 ----
 repositories {    mavenCentral()    maven {        url nexusUrl credentials { // use array type access to credentials via service name username project.credentials['Nexus'].username password project.credentials['Nexus'].password
 
