@@ -168,29 +168,84 @@ are supported.
 
 === Examples
 
-===== Defining basic SEU properties
+==== Defining basic SEU properties
 
-[source,groovy]----seuAsCode { // these two properties are mandatory seuHome 'S:' projectName 'SEU-as-code'
+[source,groovy]
+----
+seuAsCode { 
+    // these two properties are mandatory 
+    seuHome 'S:' 
+    projectName 'SEU-as-code'
 
- // the other properties are optional layout { codebase 'S:/codebase/' docbase 'S:/docbase/' home 'S:/home/' repository 'S:/repository/' software 'S:/software/' temp 'S:/temp/' } datastore { // this is for backwards compatibility to H2 1.3.x // for latest H2 1.4.x you can enable the MVStore url 'jdbc:h2:./seuac;mv_store=false'
+    // the other properties are optional 
+    layout { 
+        codebase 'S:/codebase/' 
+        docbase 'S:/docbase/' 
+        home 'S:/home/' 
+        repository 'S:/repository/' 
+        software 'S:/software/' 
+        temp 'S:/temp/' 
+    } 
+    datastore { 
+        // this is for backwards compatibility to H2 1.3.x 
+        // for latest H2 1.4.x you can enable the MVStore 
+        url 'jdbc:h2:./seuac;mv_store=false'
 
- // use this URL if you want to store things with MapDB // url 'file:mapdb:./seuac'
+        // use this URL if you want to store things with MapDB 
+        // url 'file:mapdb:./seuac'
 
- user 'sa' password 'sa' } banner { font 'slant' reflection 'no' adjustment 'center' stretch 'yes' width 80 }}----
+        user 'sa' 
+        password 'sa' 
+    } 
+    banner { 
+        font 'slant' 
+        reflection 'no' 
+        adjustment 'center' 
+        stretch 'yes' 
+        width 80 
+    }
+}
+----
 
 ===== Install software as dependencies
 
-The plugin configurations are used to determine the installation directory of thesoftware package dependencies. You have to specify a Maven repository where thesedependencies are located, in this case we used Bintray and JCenter.[source,groovy]----repositories { jcenter() maven { url 'https://dl.bintray.com/seu-as-code/maven' }}dependencies { // dependencies for the Groovy root classloader seuac 'org.codehaus.groovy.modules.scriptom:scriptom:1.6.0' seuac 'com.h2database:h2:1.4.188'
+The plugin configurations are used to determine the installation directory of the software package dependencies. You have to specify a Maven repository where these dependencies are located, in this case we used Bintray and JCenter.
 
- // mandatory dependencies for basic SEU setup home 'de.qaware.seu.as.code:seuac-home:2.0.0' software 'de.qaware.seu.as.code:seuac-environment:2.0.0:jdk8'
+[source,groovy]
+----
+repositories { 
+    jcenter() 
+    maven { url 'https://dl.bintray.com/seu-as-code/maven' }
+}
+dependencies { 
+    // dependencies for the Groovy root classloader 
+    seuac 'org.codehaus.groovy.modules.scriptom:scriptom:1.6.0' 
+    seuac 'com.h2database:h2:1.4.188'
 
- // additional dependencies for a Groovy development environment software 'org.gradle:gradle:2.14' software 'org.groovy-lang:groovy:2.4.4'}----
+    // mandatory dependencies for basic SEU setup 
+    home 'de.qaware.seu.as.code:seuac-home:2.0.0' 
+    software 'de.qaware.seu.as.code:seuac-environment:2.0.0:jdk8'
+
+    // additional dependencies for a Groovy development environment 
+    software 'org.gradle:gradle:2.14' 
+    software 'org.groovy-lang:groovy:2.4.4'
+}
+----
 
 ===== Building platform specific SEUs
 
-In case you want to build platform specific SEUs with a lot of differences you canuse the platform closure with its nested closures for each supported platform. Thisfunctionality will soon be removed from this plugin in favor of the platform plugin.
+In case you want to build platform specific SEUs with a lot of differences you can use the platform closure with its nested closures for each supported platform. This functionality will soon be removed from this plugin in favor of the platform plugin.
 
-[source,groovy]----platform { win { // add Windows specific code like dependencies or tasks here } mac { // add MacOS specific code like dependencies or tasks here } unix { // add Unix or Linux specific stuff like dependencies or tasks here } x86 { // add 32-bit specific stuff like dependencies or tasks here } x86_64 { // add 64-bit specific code like dependencies or tasks here }}----
+[source,groovy]
+----
+platform { 
+    win { // add Windows specific code like dependencies or tasks here } 
+    mac { // add MacOS specific code like dependencies or tasks here } 
+    unix { // add Unix or Linux specific stuff like dependencies or tasks here } 
+    x86 { // add 32-bit specific stuff like dependencies or tasks here } 
+    x86_64 { // add 64-bit specific code like dependencies or tasks here }
+}
+----
 
 
 == Credentials Plugin
