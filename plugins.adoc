@@ -146,27 +146,56 @@ credentials {
 
 == Git Plugin
 
-A Gradle plugin for handling Git repositories. It provides basic tasks to init, clonecommit, push and push Git repositories. This plugin does not require a Git CLI sinceit uses the JGit library under the hood. The repositories can be configured using theplugin extension.
+A Gradle plugin for handling Git repositories. It provides basic tasks to init, clone, commit, push and push Git repositories. This plugin does not require a Git CLI since it uses the JGit library under the hood. The repositories can be configured using the plugin extension.
 
 === Basic Usage
 
-Build script snippet for use in all Gradle versions, using the Bintray Maven repository:[source,groovy]----buildscript { repositories { mavenCentral() maven { url 'https://dl.bintray.com/seu-as-code/gradle-plugins' } } dependencies { classpath 'de.qaware.seu.as.code:seuac-git-plugin:2.3.0.RC2' }}
+Build script snippet for use in all Gradle versions, using the Bintray Maven repository:
+[source,groovy]
+----
+buildscript { 
+    repositories { 
+        mavenCentral() 
+        maven { url 'https://dl.bintray.com/seu-as-code/gradle-plugins' } 
+    } 
+    dependencies { 
+        classpath 'de.qaware.seu.as.code:seuac-git-plugin:2.3.0.RC2' 
+    }
+}
 
-apply plugin: 'de.qaware.seu.as.code.git'----
+apply plugin: 'de.qaware.seu.as.code.git'
+----
 
-Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:[source,groovy]----plugins { id 'de.qaware.seu.as.code.git' version '2.3.0.RC2'}----
+Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
+[source,groovy]
+----
+plugins { 
+    id 'de.qaware.seu.as.code.git' version '2.3.0.RC2'
+}
+----
 
 === Tasks
 
 The plugin defines the following tasks:
 
-[cols="1a,1a,1a,3a"]|===| Task name | Depends on | Type | Description
+[cols="1a,1a,1a,3a"]
+|===
+| Task name | Depends on | Type | Description
 
-| `gitInitAll`| all `gitInit<RepositoryName>` tasks| -| Performs a Git init for all defined repositories.
+| `gitInitAll`
+| all `gitInit<RepositoryName>` tasks
+| -
+| Performs a Git init for all defined repositories.
 
-| `gitCloneAll`| all `gitClone<RepositoryName>` tasks| -| Performs a Git clone for all defined repositories.
+| `gitCloneAll`
+| all `gitClone<RepositoryName>` tasks
+| -
+| Performs a Git clone for all defined repositories.
 
-| `gitPushAll`| all `gitPush<RepositoryName>` tasks| -| Performs a Git push for all defined repositories.
+| `gitPushAll`
+| all `gitPush<RepositoryName>` tasks
+| -
+| Performs a Git push for all defined repositories.
 
 | `gitPullAll`| all `gitPull<RepositoryName>` tasks| -| Performs a Git pull for all defined repositories.
 
