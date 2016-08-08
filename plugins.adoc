@@ -305,7 +305,8 @@ task helloWorldOnlyIfMac(group: 'Example') {
 
 == SVN Plugin
 
-A Gradle plugin for handling SVN repositories. Provides basic tasks to checkoutSVN repositories and update local directories. The repositories can be configuredusing an extension.
+A Gradle plugin for handling SVN repositories. Provides basic tasks to checkout SVN repositories 
+and update local directories. The repositories can be configured using an extension.
 
 ==== Basic Usage
 
