@@ -12,9 +12,8 @@ additional customization scripts.
 Building packages is not hard. Again, we mainly use Gradle to build the software
 packages. A good way to start is to have a look at the package builds that are
 available at the https://github.com/seu-as-code/seu-as-code.packages/[SEU-as-code Packages]
-GitHub repository.
-
-Basically, the process of building your packages consists of 5 steps:
+GitHub repository. Basically, the process of building your packages consists of five
+simple steps:
 
 << insert image from slides >>
 
