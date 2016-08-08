@@ -15,7 +15,7 @@ available at the https://github.com/seu-as-code/seu-as-code.packages/[SEU-as-cod
 GitHub repository. Basically, the process of building your packages consists of five
 simple steps:
 
-image:/assets/package-process.png[alt="5 Steps of Packaging Process",500,500,align="center"]
+image:/assets/package-process.png[alt="5 Steps of Packaging Process",width=500,align="center"]
 
 The first step is usually downloading the original software package artifact from its original site. An archive format is preferred, like ZIP, TAR or GZIP so that it can be easily extracted in the next step. If there is no archive available, then download the MSI or DMG, install it locally once, repackage as archive and continue from here.
 
