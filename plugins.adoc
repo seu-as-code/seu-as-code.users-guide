@@ -1,6 +1,6 @@
 = Plugins
 
-This section of the documentation is dedicated to the SEU-as-code plugins. Theydo the heavy lifting when used in a Gradle build. All of the plugins can be usedindependently, some of them can even be used standalone outside of an SEU context.
+This section of the documentation is dedicated to the SEU-as-code plugins. They do the heavy lifting when used in a Gradle build. All of the plugins can be used independently, some of them can even be used standalone outside of an SEU context.
 
 
 == Base Plugin
